@@ -1,0 +1,11 @@
+{
+  "mongoose" : { "module" : "mongoose" },
+  "console" : { "module" : "console" },
+  "customer" : { 
+    "module" : "./app/models/customer",
+    "constructorArgs" : [
+      { "bean" : "mongoose" },
+      { "bean" : "console" }
+    ]
+  }
+}

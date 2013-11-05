@@ -11,13 +11,11 @@ var express = require('express')
 
 var app = express();
 
-var wire = require('wire');
+var cb = require("CoolBeans");
 var console = require('console');
 // Use wire programmatically to wire the spec to produce
 // a fully wired context.
-wire(require('./spec')).then(function(context) {
-  console.log(context.message);
-}, console.error);
+cb = new cb("./spec.json");
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
