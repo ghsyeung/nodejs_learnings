@@ -39,14 +39,14 @@ var Customer = function() {
     }
   };
 
-  var findByEmail = function(email) {
-    model.findOne({email: email}, function(e, doc) {
-      if (e) {
-        fail(e)
-      } else {
-        success(doc);
-      }
-    });
+  var findByEmail = function(email, cb) {
+    if (email == null) {
+      cb(true, null);
+    } else {
+      singleCustomerModel.model.findOne({email: email}, function(e, doc) {
+        cb(e, doc);
+      });
+    }
   };
 
   return createCustomer;
