@@ -41,6 +41,14 @@ module.exports = function (grunt) {
         options: {
           livereload: reloadPort
         },
+      },
+    },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/specs/**/*.js']
       }
     }
   });
@@ -66,6 +74,8 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-develop');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   grunt.registerTask('default', ['develop', 'watch']);
+  grunt.registerTask('test', ['mochaTest']);
 };
