@@ -11,7 +11,8 @@
     "CoolBeans": "0.0.9",
     "rxjs": "~1.0.10621",
     "chai": "~1.8.1",
-    "mongoose": "~3.8.0"
+    "mongoose": "~3.8.0",
+    "passport": "~0.1.17"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
