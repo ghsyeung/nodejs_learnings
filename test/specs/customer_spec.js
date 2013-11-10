@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 require('../lib/test_db_connection')(mongoose);
 var customer = require('../../app/models/customer')(mongoose);
 
+// @IntegrationTest
 describe('Customers', function() {
 
   afterEach(function(done) {
