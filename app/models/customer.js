@@ -1,3 +1,4 @@
+var generate_api = require('../lib/api_token_generator');
 /* Dependency
  * - mongoose
  */
@@ -12,6 +13,25 @@ var Customer = function() {
       first: String,
       last: String,
       email: { type: String, index: { unique: true, required: true }},
+      api_key: { type: String, index: { required: true }}
+    });
+
+    customerSchema.virtual('createdAt').get(function() {
+      return this._id.getTimestamp;
+    });
+
+    customerSchema.pre('validate', function(next) {
+      var self = this;
+      (function fn() {
+        key = generate_api();
+        singleCustomerModel.model.findOne({ api_key : key }, function(err, c) {
+          if (c) { fn(); }
+          else {
+            self.api_key = key;
+          }
+          next();
+        });
+      })();
     });
 
     singleCustomerModel = { 

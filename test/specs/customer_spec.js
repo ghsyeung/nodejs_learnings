@@ -34,6 +34,9 @@ describe('Customers', function() {
       customer.register('gary@email.com', 'gary', 'yeung', function(err, customer) {
         expect(customer).not.to.be.null;
         expect(customer.email).to.equal('gary@email.com');
+
+        expect(customer._id).to.exist;
+        expect(customer.api_key).to.exist;
         done();
       });
     });
