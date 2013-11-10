@@ -12,7 +12,9 @@
     "rxjs": "~1.0.10621",
     "chai": "~1.8.1",
     "mongoose": "~3.8.0",
-    "passport": "~0.1.17"
+    "passport": "~0.1.17",
+    "node-uuid": "~1.4.1",
+    "underscore": "~1.5.2"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
