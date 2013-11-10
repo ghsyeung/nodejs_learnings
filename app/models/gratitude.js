@@ -18,7 +18,8 @@ var Gratitude = function() {
 
     singleGratitudeModel = {
       model : mongoose.model('gratitudes', gratitudeSchema),
-      createGratitude: createGratitude
+      createGratitude: createGratitude,
+      findAll: findAll
     };
     return singleGratitudeModel;
   }
@@ -35,6 +36,10 @@ var Gratitude = function() {
       });
       newGratitude.save(cb);
     }
+  };
+
+  var findAll = function(customer, cb) {
+    singleGratitudeModel.model.find({ customer: customer }, cb);
   };
 
   return createEntity;
