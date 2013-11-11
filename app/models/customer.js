@@ -37,7 +37,8 @@ var Customer = function() {
     singleCustomerModel = { 
       model : mongoose.model('customers', customerSchema),
       findByEmail : findByEmail,
-      register: register
+      findById : findById,
+      register : register
     };
     return singleCustomerModel;
   };
@@ -61,9 +62,19 @@ var Customer = function() {
 
   var findByEmail = function(email, cb) {
     if (email == null) {
-      cb(true, null);
+      cb("Invalid Email", null);
     } else {
       singleCustomerModel.model.findOne({email: email}, function(e, doc) {
+        cb(e, doc);
+      });
+    }
+  };
+
+  var findById = function(id, cb) {
+    if (id == null) {
+      cb("Invalid Customer ID", null);
+    } else {
+      singleCustomerModel.model.findOne({_id: id}, function(e, doc) {
         cb(e, doc);
       });
     }

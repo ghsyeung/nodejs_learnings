@@ -1,5 +1,6 @@
 /* Dependency
  * - mongoose
+ * - customer (model reference)
  */
 
 var Gratitude = function() {

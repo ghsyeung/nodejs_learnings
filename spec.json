@@ -7,5 +7,12 @@
       { "bean" : "mongoose" },
       { "bean" : "console" }
     ]
+  },
+  "gratitude" : {
+    "module" : "./app/models/gratitude",
+    "constructorArgs" : [
+      { "bean" : "mongoose" },
+      { "bean" : "console" }
+    ]
   }
 }
